@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+    <!-- Header -->
+    {% block container %}
+
+   
+    <header class="bg-light text-center py-5">
+        <h1 style="font-size: 30px;">Language Converter</h1>
+        <p class="lead" style="font-size: 16px;">Translate your content with Indian languages.</p>
+    </header>
+
+    <!-- Body Content -->
+    
+   <div class="container">
+    <div style="display: flex; justify-content: center; align-items: center;" class="row">
+        
+        <div class="col-lg leftLang"   id="leftLangSelect"  style="margin-left: 306px; border-radius: 10px;"></div>
+{% comment %} 
+        <div class="col-auto text-center">
+            <span class="arrow" style="font-size: 28px;">&#x2194;</span>
+        </div> {% endcomment %}
+     
+        <div class="col-md-1 text-center">
+            <span class="arrow" id="swap">
+                &#x21c4; <!-- Unicode character for double arrow -->
+            </span>
+        </div>
+
+        <div class="col-lg rightLang"   id="rightLangSelect" style=" border-radius: 10px;"></div>
+
+        <div class="col-lg"> 
+            <a href="{% url 'generate_all_pdf' %}">
+                <button 
+                    class="downloadAll" 
+                    type="button" 
+                    style="float: right; background-color: blue;color: white;border-radius: 10px;"
+                    >
+                    Download All
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-lg-6 inputText">
+                <textarea id="inputText"></textarea>
+            </div>
+            <div class="col-lg-6 outputText">
+                <div class="accordion" id="accordionExample">
+                    <!-- Hindi -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingHindi">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-bs-target="#collapseHindi" aria-expanded="true" aria-controls="collapseHindi">
+                                <p id="output-text">Hindi</p>
+                                <a href="download-pdf/Hindi/" style="padding-left: 340px;">
+                                    {% comment %} <img src="{% static 'img/pdf.svg' %}" /> {% endcomment %}
+                                </a>
+                            </button>
+                        </h2>
+                        <div id="collapseHindi" class="accordion-collapse collapse show" aria-labelledby="headingHindi" data-bs-parent="#accordionExample">
+                           
+                            <div class="accordion-body" id="hindiOutput"></div>
+
+                        </div>
+                    </div>
+                    {% comment %} <!-- Gujarati -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingGujarati">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGujarati" aria-expanded="true" aria-controls="collapseGujarati">
+                                Gujarati
+                                <a href="download-pdf/Gujarati/" style="padding-left: 340px;">
+                                    <img src="{% static 'img/pdf.svg' %}" />
+                                </a>
+                            </button>
+                        </h2>
+                        <div id="collapseGujarati" class="accordion-collapse collapse" aria-labelledby="headingGujarati" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="gujaratiOutput"></div>
+                        </div>
+                    </div>  
+                      <!-- Tamil -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTamil">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTamil" aria-expanded="true" aria-controls="collapseTamil">
+                                Tamil
+                                <a href="download-pdf/Tamil/" style="padding-left: 340px;">
+                                    <img src="{% static 'img/pdf.svg' %}" />
+                                </a>
+                            </button>
+                        </h2>
+                        <div id="collapseTamil" class="accordion-collapse collapse" aria-labelledby="headingTamil" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="TamilOutput"></div>
+                    
+                        </div>
+                    </div>
+                 <!-- Sindhi -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingSindhi">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSindhi" aria-expanded="true" aria-controls="collapseSindhi">
+                             Sindhi
+                             <a href="download-pdf/Sindhi/" style="padding-left: 340px;">
+                                <img src="{% static 'img/pdf.svg' %}" />
+                             </a>
+                            </button>
+                      </h2>
+                       <div id="collapseSindhi" class="accordion-collapse collapse" aria-labelledby="headingSindhi" data-bs-parent="#accordionExample">
+                          <div class="accordion-body" id="SindhiOutput"></div>
+
+                        </div>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-lg-12"> <button type="button" id="convertButton" name="inputText" style="padding:-3px;">Convert</button></div>
+        </div>
+
+        
+    </div>
+    {% endblock container %}
+
+
+
+
+
+
+
+ 
