@@ -118,13 +118,15 @@ $("#convertButton").click(function (e) {
                                             </div>
                                             <div style="max-width:5px">
                                                 <a href="download-pdf/${allConvertCode[i]}/" style="margin:0px !important;" ><img src="static/img/pdf.svg"/></a>
-                                                <button type="button" class="btn btn-primary" onclick="copyText(${i})">Copy</button>
                                             </div>
                                         </button>
                                     </h2>
                                     
                                     <div id="collapseOne${allConvertCode[i]}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body" id="textToCopy${i}">
+                                        <div style="display:flex">
+                                            <button type="button" class="btn btn-primary" style="justify-content:flex-end" onclick="copyText(${i})">Copy</button>
+                                        </div>
                                         ${allConvertText[j]}
                                          
                                     </div>
